@@ -1,0 +1,83 @@
+Fourier Series
+− −
+2
+cos(t) +
+3
+2 cos(2t) 1
+from sympy import *
+t=symbols('t')
+y=t*sin(t)
+s = fourier_series(y, (t, -pi, pi)).truncate(3)
+display(s)
+− sin (t) + −
+2
+sin (2t) +
+3
+sin (3t) −
+4
+sin (4t) +
+5
+sin (5t) −
+6
+sin (6t) +
+7
+sin (7t)
+sin (8t) sin (9t) π
+#f(x)=(pi-x)/2
+from sympy import *
+t=symbols("t")
+y=(pi-t)/2
+s = fourier_series(y, (t, -pi, pi)).truncate(10)
+display(s)
+− +
+π
+6 sin (
+3
+πt ) −
+π
+3 sin (
+3
+2πt ) +
+π
+2
+72 cos (
+3
+πt ) +
+π
+2
+18 cos (
+3
+2πt )
+6
+from sympy import *
+t=symbols("t")
+y=2*t**2-t
+s = fourier_series(y, (t, -3, 3)).truncate(3)
+display(s)
+Laplace Transform
+( , 0, True
+s + 16
+2
+4 )
+from sympy import *
+t,a,s=symbols('t a s ')
+f=sin(4*t)
+F=laplace_transform(f,t,s)
+display(simplify(F))
+( , 0, 2 arg a = 0 a + s
+2 2
+a
+∣ ( )∣ )
+from sympy import *
+t,a,s=symbols('t a s')
+f=sin(a*t)
+F=laplace_transform(f,t,s)
+display(simplify(F))
+( , 0, True
+(s + 2)(s + 6)
+s + 4 )
+from sympy import *
+t,a,s,n=symbols('t a s n')
+f=exp(-4*t)*cosh(2*t)
+F=laplace_transform(f,t,s)
+display(simplify(F))
